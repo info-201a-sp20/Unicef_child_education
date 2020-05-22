@@ -6,11 +6,31 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-source("summary_info.R")
+literacy_rate_data <- read.csv("data/regional-agg_LiteracyRate.csv", stringsAsFactors = FALSE)
+library("knitr")
+#source("scripts/summary_info.R")
+source("scripts/agg_table.R")
+source("bar_chart.R")
+source("scatter_plot.R")
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Summary Info
 ```{r echo = FALSE}
+#sum_info(literacy_rate_data)
 
+```
+
+## Table
+```{r echo = FALSE}
+kable(agg_table(literacy_rate_data))
+```
+
+## Charts
+```{r echo = FALSE}
+bar_chart(literacy_rate_data)
+```
+
+```{r echo = FALSE}
+scatter_plot(literacy_rate_data)
 ```

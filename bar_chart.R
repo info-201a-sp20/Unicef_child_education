@@ -2,8 +2,6 @@ library("dplyr")
 library("ggplot2")
 library("reshape2")
 
-literacy_data <-
-  read.csv("data/regional-agg_LiteracyRate.csv", stringsAsFactors = FALSE)
 
 bar_chart <- function(data_frame) {
   plot_data <- na.omit(data_frame) %>%

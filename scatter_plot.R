@@ -1,8 +1,6 @@
 library("dplyr")
 library("ggplot2")
 
-literacy_data <-
-  read.csv("data/regional-agg_LiteracyRate.csv", stringsAsFactors = FALSE)
 
 scatter_plot <- function(data_frame) {
   plot_data <- na.omit(data_frame) %>%
