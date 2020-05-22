@@ -1,0 +1,16 @@
+---
+title: "index.Rmd"
+author: "AF-4"
+date: "5/22/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+source("summary_info.R")
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Summary Info
+```{r echo = FALSE}
+
+```
