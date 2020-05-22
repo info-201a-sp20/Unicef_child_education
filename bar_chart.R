@@ -21,4 +21,3 @@ bar_chart <- function(data_frame) {
     labs(fill = "Gender")
   return(bar_chart)
 }
-
