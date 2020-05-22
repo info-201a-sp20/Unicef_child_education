@@ -8,7 +8,7 @@ output: html_document
 ```{r setup, include=FALSE}
 literacy_rate_data <- read.csv("data/regional-agg_LiteracyRate.csv", stringsAsFactors = FALSE)
 library("knitr")
-#source("scripts/summary_info.R")
+source("scripts/summary_info.R")
 source("scripts/agg_table.R")
 source("bar_chart.R")
 source("scatter_plot.R")
@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Summary Info
 ```{r echo = FALSE}
-#sum_info(literacy_rate_data)
+sum_inform(literacy_rate_data)
 
 ```
 

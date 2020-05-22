@@ -18,14 +18,9 @@ sum_inform <- function(data) {
     select(Total) %>%
     
   info$num_least_developed_countries <- data %>%
-    filter(!is.na(Least.developed.countries..LDC.)) %>%
+    filter(Least.developed.countries..LDC. == "LDC") %>%
     count()
   return(info)
 }
 
-
-  
 sum_inform(literacy_rate_data)
-
-literacy_rate_data %>%
-  filter(!is.na(Least.developed.countries..LDC.))
