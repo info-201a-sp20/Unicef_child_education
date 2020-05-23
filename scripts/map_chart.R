@@ -26,4 +26,5 @@ map_chart <- function(data) {
       radius = ~radius,
       fillOpacity = 0.5
     )
+  return(map)
 }
