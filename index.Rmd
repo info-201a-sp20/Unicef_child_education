@@ -16,10 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Summary Info
-```{r echo = FALSE}
-sum_inform(literacy_rate_data)
-
-```
+Our dataset displays the literacy rates of `r sum_inform(literacy_rate_data)$num_countries` countries around the world. The countries with the hightest total literacy rates were `r sum_inform(literacy_rate_data)$country_highest_total_rate`. The country with the lowest total literacy rate of `r sum_inform(literacy_rate_data)$lowest_total_rate` percent was `r sum_inform(literacy_rate_data)$country_lowest_total_rate`. The average total literacy rate was `r sum_inform(literacy_rate_data)$avg_total_rate`. Also, there were `r sum_inform(literacy_rate_data)$num_least_developed_countries` countries that were considered the least developed.
 
 ## Table
 ```{r echo = FALSE}

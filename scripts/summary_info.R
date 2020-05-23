@@ -1,5 +1,5 @@
 library(dplyr)
-literacy_rate_data <- read.csv("data/regional-agg_LiteracyRate.csv", stringsAsFactors = FALSE)
+
 sum_inform <- function(data) {
   info <- list()
   info$num_countries <- data %>%
@@ -13,14 +13,17 @@ sum_inform <- function(data) {
     filter(Total == min(Total, na.rm = TRUE)) %>%
     pull(Country)
   
+  info$lowest_total_rate <- data %>%
+    filter(Total == min(Total, na.rm = TRUE)) %>%
+    pull(Total)
+  
   info$avg_total_rate <- data %>%
-    filter(!is.na(Total)) %>%
+    na.omit() %>%
     select(Total) %>%
+    summarise(avg = mean(Total))
     
   info$num_least_developed_countries <- data %>%
     filter(Least.developed.countries..LDC. == "LDC") %>%
     count()
   return(info)
 }
-
-sum_inform(literacy_rate_data)
