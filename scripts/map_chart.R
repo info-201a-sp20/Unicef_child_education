@@ -11,8 +11,8 @@ map_chart <- function(data) {
     ) %>%
     na.omit()
 
-  plot_data$radius <- (plot_data$Total - min(plot_data$Total)) / 5
-
+  plot_data$radius <- plot_data$Total / 15
+                       
   map <- leaflet(plot_data) %>%
     addTiles() %>%
     addCircleMarkers(
