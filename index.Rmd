@@ -72,3 +72,8 @@ It is apparent that there is no correlation between the least developing countri
 ```{r echo = FALSE}
 map_chart(literacy_rate_data)
 ```
+
+#### Analysis and Insights
+We want to know if the high or low literacy rate countries are clustered by their locations. Therefore, we have visualizations on the world map with the literacy rate of each country represented by a circle whose radius is one's literacy rate relatively with others.
+
+Looking at the map, we can see there is a cluster of lower literacy rates ranging in the Western South of African, and two clusters of higher literacy rates in South Asia and Europe. It is apparent that locations and regions have certain factors in the Youth literacy rates in 2019. 
