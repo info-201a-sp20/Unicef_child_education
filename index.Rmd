@@ -30,7 +30,14 @@ Our dataset displays the literacy rates of `r sum_inform(literacy_rate_data)$num
 The table below shows the average total literacy percentage, average female literacy percentage, and average male literacy percentage for each sub-region of Africa. This grouping calculation was performed in order to better hone in on the causes of poor literacy rates in Africa.
 
 ```{r echo = FALSE}
-kable(agg_table(literacy_rate_data))
+data <- literacy_rate_data
+data[data == ""] = NA
+literacy_by_region <- agg_table(data) %>%
+  filter(!is.na(Africa.sub.regions))
+kable(literacy_by_region, col.names = c("Africa Sub-Region",
+                                                   "Average Overall Percentage",
+                                                   "Female Percentage",
+                                                   "Male Percentage"))
 ```
 
 #### Interpretation of Table
