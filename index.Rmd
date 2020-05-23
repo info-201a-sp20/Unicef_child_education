@@ -10,8 +10,8 @@ literacy_rate_data <- read.csv("data/regional-agg_LiteracyRate.csv", stringsAsFa
 library("knitr")
 source("scripts/summary_info.R")
 source("scripts/agg_table.R")
-source("bar_chart.R")
-source("scatter_plot.R")
+source("scripts/bar_chart.R")
+source("scripts/scatter_plot.R")
 source("scripts/map_chart.R")
 knitr::opts_chunk$set(echo = TRUE)
 ```
