@@ -10,21 +10,26 @@ literacy_rate_data <- read.csv("data/regional-agg_LiteracyRate.csv", stringsAsFa
 library("knitr")
 source("scripts/summary_info.R")
 source("scripts/agg_table.R")
-source("bar_chart.R")
-source("scatter_plot.R")
+source("scripts/bar_chart.R")
+source("scripts/scatter_plot.R")
 source("scripts/map_chart.R")
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Summary Info
-```{r echo = FALSE}
-sum_inform(literacy_rate_data)
-```
+
+Our dataset displays the literacy rates of `r sum_inform(literacy_rate_data)$num_countries` countries around the world. The countries with the hightest total literacy rates were `r sum_inform(literacy_rate_data)$country_highest_total_rate`. The country with the lowest total literacy rate of `r sum_inform(literacy_rate_data)$lowest_total_rate` percent was `r sum_inform(literacy_rate_data)$country_lowest_total_rate`. The average total literacy rate was `r sum_inform(literacy_rate_data)$avg_total_rate`. Also, there were `r sum_inform(literacy_rate_data)$num_least_developed_countries` countries that were considered the least developed.
 
 ## Table
+#### Introduction
+The table below shows the average total literacy percentage, average female literacy percentage, and average male literacy percentage for each sub-region of Africa. This grouping calculation was performed in order to better hone in on the causes of poor literacy rates in Africa.
+
 ```{r echo = FALSE}
 kable(agg_table(literacy_rate_data))
 ```
+
+#### Interpretation of Table
+According to the table, the sub-region with the lowest overall literacy rate is Southern Africa and the sub-region with the highest overall literacy rate is Eastern Africa. The region with the lowest female literacy rate is Western Africa, and the region with the lowest male literacy rate is Southern Africa.
 
 ## Charts
 ```{r echo = FALSE}
@@ -35,6 +40,15 @@ bar_chart(literacy_rate_data)
 scatter_plot(literacy_rate_data)
 ```
 
-```{r echo=FALSE}
+#### Analysis and Insights
+In this chart, we wanted to see if there was a similar relationship between the least developing countries (LDC) and their overall youth literacy rates. We thought it’d be best to plot this on a scatter plot so we could clearly interpret whether the literacy rates of the youth were generally high or low. 
+
+It is apparent that there is no correlation between the least developing countries and their youth literacy rates. Through our observations, we can see that the majority of the literacy rates are above 50%; however, The Central African Republic, Mali, and South Sudan all had low literacy rates which were below 50%, skewing the data. Despite the countries exhibiting low socioeconomic development, it is unclear whether there is a relationship between how high or low their youth’s literacy rate is. 
+
+- 6 of the LDC countries had a literacy rate of above 90%
+- 4 of the LDC countries had a literacy rate of below 60%
+- The lowest literacy rate was around 40% from Central African Republic, while the highest literacy rate was nearly 100% from Rwanda, giving us a range of around 60%
+
+```{r echo = FALSE}
 map_chart(literacy_rate_data)
 ```
