@@ -12,10 +12,12 @@ source("scripts/summary_info.R")
 source("scripts/agg_table.R")
 source("bar_chart.R")
 source("scatter_plot.R")
+source("scripts/map_chart.R")
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Summary Info
+
 Our dataset displays the literacy rates of `r sum_inform(literacy_rate_data)$num_countries` countries around the world. The countries with the hightest total literacy rates were `r sum_inform(literacy_rate_data)$country_highest_total_rate`. The country with the lowest total literacy rate of `r sum_inform(literacy_rate_data)$lowest_total_rate` percent was `r sum_inform(literacy_rate_data)$country_lowest_total_rate`. The average total literacy rate was `r sum_inform(literacy_rate_data)$avg_total_rate`. Also, there were `r sum_inform(literacy_rate_data)$num_least_developed_countries` countries that were considered the least developed.
 
 ## Table
@@ -30,4 +32,8 @@ bar_chart(literacy_rate_data)
 
 ```{r echo = FALSE}
 scatter_plot(literacy_rate_data)
+```
+
+```{r echo=FALSE}
+map_chart(literacy_rate_data)
 ```
