@@ -1,5 +1,5 @@
 ---
-title: "index.Rmd"
+title: "Literacy Rates Around The World"
 author: "AF-4"
 date: "5/22/2020"
 output: html_document
@@ -15,10 +15,15 @@ source("scripts/scatter_plot.R")
 source("scripts/map_chart.R")
 knitr::opts_chunk$set(echo = TRUE)
 ```
+## Introduction
+Literacy rates of youths are a good indicator of flaws in the education system and could provide interesting conclusions when compared with other data (e.g. country GDP). Furthermore, literacy is a crucial factor in human development and economic growth, making it very important to improve our education systems. 
+
+Our data is the Youth literacy rate for 15-24 years in different countries. We analyze the youth literacy rates by regions, genders, and by economics status (Least Developed countries, etc.) The data was found on the [UNICEF Website](https://data.unicef.org/resources/dataset/education-data/). UNICEF referenced the databases from the UNESCO Institute for Statistics and  Education for All Global Monitoring Report 2013/14: Teaching and Learning – Achieving Quality for All by UNESCO for their data.
 
 ## Summary Info
 
-Our dataset displays the literacy rates of `r sum_inform(literacy_rate_data)$num_countries` countries around the world. The countries with the hightest total literacy rates were `r sum_inform(literacy_rate_data)$country_highest_total_rate`. The country with the lowest total literacy rate of `r sum_inform(literacy_rate_data)$lowest_total_rate` percent was `r sum_inform(literacy_rate_data)$country_lowest_total_rate`. The average total literacy rate was `r sum_inform(literacy_rate_data)$avg_total_rate`. Also, there were `r sum_inform(literacy_rate_data)$num_least_developed_countries` countries that were considered the least developed.
+Our dataset displays the literacy rates of `r sum_inform(literacy_rate_data)$num_countries` countries around the world. The countries with the hightest total literacy rates were `r sum_inform(literacy_rate_data)$country_highest_total_rate`. The country with the lowest total literacy rate of `r sum_inform(literacy_rate_data)$lowest_total_rate` percent was `r sum_inform(literacy_rate_data)$country_lowest_total_rate`. The average total literacy rate was `r sum_inform(literacy_rate_data)$avg_total_rate`. Also, there were `r sum_inform(literacy_rate_data)$num_least_developed_countries` countries that were considered the least developed, meaning they most likely don't have the best access to education.
+
 
 ## Table
 #### Introduction
@@ -31,10 +36,23 @@ kable(agg_table(literacy_rate_data))
 #### Interpretation of Table
 According to the table, the sub-region with the lowest overall literacy rate is Southern Africa and the sub-region with the highest overall literacy rate is Eastern Africa. The region with the lowest female literacy rate is Western Africa, and the region with the lowest male literacy rate is Southern Africa.
 
+
 ## Charts
+
 ```{r echo = FALSE}
 bar_chart(literacy_rate_data)
 ```
+
+#### Analysis and Insights
+We plot the chart to explore the difference of literacy rate across gender (male and female) grouped by regions of the world. The data is grouped by the region and plotted by the average literacy rate of males and females in each group. The bar plot with two percentages of each gender would allow us to compare the differences across gender and region. 
+
+While the last 4 regions (Middle East and North Africa, Latin American and the Caribbean, Europe and Central Asia, East Asia and Pacific) have very high literacy rates, almost 100% without noticeable differences between two genders. Sub-Saharan Africa and Southern Asia have lower literacy rates overall, in the range of 60% to 80%. 
+
+Analyzing the different percentage of males and females between two groups:
+
+- Lower Literacy rate (the first two regions): the literacy rate of female is lesser than male
+- Higher Literacy rate (the last four regions): the literacy rate of female tends to higher than of male (3 out of 4 regions)
+
 
 ```{r echo = FALSE}
 scatter_plot(literacy_rate_data)
@@ -49,6 +67,8 @@ It is apparent that there is no correlation between the least developing countri
 - 4 of the LDC countries had a literacy rate of below 60%
 - The lowest literacy rate was around 40% from Central African Republic, while the highest literacy rate was nearly 100% from Rwanda, giving us a range of around 60%
 
+
+#### Literacy Rate of Youth By Location
 ```{r echo = FALSE}
 map_chart(literacy_rate_data)
 ```
