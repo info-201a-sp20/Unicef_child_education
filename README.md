@@ -1,3 +1,4 @@
+Link to Rmd file: https://info-201a-sp20.github.io/Unicef_child_education/
 # Project Brainstorm
 ## Domain of Interest
 Child education rates are a good indicator of flaws in the education system and could provide interesting conclusions when compared with other data (e.g. country GDP). Furthermore, child education is an integral factor in human development, making it very important to improve our education systems.
