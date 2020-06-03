@@ -2,8 +2,6 @@ library("shiny")
 library("dplyr")
 library("ggplot2")
 library("plotly")
-library("lintr")
-library("styler")
 
 # Widget to define a variable for the scatter plot
 scatter_sidebar_content <- sidebarPanel(
