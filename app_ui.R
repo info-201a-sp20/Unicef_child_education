@@ -16,6 +16,7 @@ scatter_sidebar_content <- sidebarPanel(
     )
   ),
   # A description of why we chose a scatter plot
+  hr(),
   h4("Our Reasoning:"),
   p("In this chart, we wanted to see if there was a similar relationship
     between the least developing countries (LDC) and their overall youth
@@ -26,7 +27,7 @@ scatter_sidebar_content <- sidebarPanel(
 
 # Prints out scatter plot
 scatter_main_content <- mainPanel(
-  plotlyOutput("scatter")
+  plotlyOutput(outputId = "scatter")
 )
 
 # Formats the page and stores a tab panel for the scatter panel
