@@ -8,7 +8,7 @@ scatter_sidebar_content <- sidebarPanel(
   # An input to select variable for scatter plot
   selectInput(
     "y_var",
-    label = "Literacy Rates of:",
+    label = "Population:",
     choices = list(
       "Youth" = "Total",
       "Females" = "Female",
