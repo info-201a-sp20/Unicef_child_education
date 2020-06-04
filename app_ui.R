@@ -11,8 +11,8 @@ scatter_sidebar_content <- sidebarPanel(
     label = "Population:",
     choices = list(
       "Youth" = "Total",
-      "Females" = "Female",
-      "Males" = "Male"
+      "Youth Females" = "Female",
+      "Youth Males" = "Male"
     )
   ),
   # A description of why we chose a scatter plot
@@ -71,10 +71,10 @@ barchart_panel <- tabPanel(
   )
 )
 
-# Defines the 5 pages 
+# Defines the 5 pages
 ui <- navbarPage(
   "Literacy Rates Around the World",
-  # overview, 
+  # overview,
   barchart_panel,
   scatter_panel
   # map_panel,
