@@ -10,10 +10,9 @@ bar_chart <- function(data_frame, area) {
            Female = sum(Female) / n()) %>%
     select(Region, Male, Female) %>%
     filter(Region != "")
-  area_list <- c()
   plot_data <- plot_data[!duplicated(plot_data$Region), ]
   plot_data <- melt(plot_data[, c('Region', 'Male', 'Female')], id.vars = 1)
-  bar_chart <- ggplot(plot_data, aes(x = value, y = area_list)) +
+  bar_chart <- ggplot(plot_data, aes(x = value, y = area)) +
     geom_bar(aes(fill = variable), stat = "identity", position = "dodge") +
     ggtitle("Literacy Rates of Youth Males and Females in 2018 by Region") +
     labs(y = "Region", x = "Literacy Rate (%)") +
