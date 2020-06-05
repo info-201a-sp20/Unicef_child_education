@@ -23,7 +23,7 @@ map_chart <- function(data) {
         "Literacy rate: ", plot_data$Total, "<br>"
       ),
       stroke = FALSE,
-      radius = ~radius,
+      color = plot_data$Total,
       fillOpacity = 0.5
     )
   return(map)
