@@ -1,5 +1,6 @@
 library("shiny")
 library("plotly")
+library("leaflet")
 
 # Load server and users' interface
 source("app_ui.R")
