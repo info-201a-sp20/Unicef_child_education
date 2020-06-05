@@ -43,9 +43,9 @@ scatter_panel <- tabPanel(
 
 # Widget to pick gender and region
 barchart_sidebar <- sidebarPanel(
-  selectInput(
-    "region",
-    label = "Region:",
+  checkboxGroupInput(
+    "area",
+    h3("Region:"),
     choices = list(
       "Sub-Saharan Africa" = "SSA",
       "South Africa" = "SA",
@@ -53,7 +53,8 @@ barchart_sidebar <- sidebarPanel(
       "Latin America and the Carribean" = "LAC",
       "Europe and Central Asia" = "ECA",
       "East Asia and Pacific" = "EAP"
-    )
+    ),
+    selected = "SSA"
   )
 )
 

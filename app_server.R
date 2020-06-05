@@ -14,6 +14,6 @@ server <- function(input, output) {
   })
   # Renders barchart
   output$barchart <- renderPlotly({
-    return(bar_chart(data, input$region))
+    return(bar_chart(data, input$Region))
   })
 }
