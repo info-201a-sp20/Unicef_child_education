@@ -2,6 +2,7 @@ library("shiny")
 library("dplyr")
 library("ggplot2")
 library("plotly")
+library("RColorBrewer")
 
 # Widget to define a variable for the scatter plot
 scatter_sidebar_content <- sidebarPanel(
@@ -71,12 +72,48 @@ barchart_panel <- tabPanel(
   )
 )
 
+# Widget to pick gender and color scheme,
+# choose whether show legend or not
+mapchart_sidebar <- sidebarPanel(
+  selectInput(
+    "gender",
+    "Population: ",
+    choices = list(
+      "Youth" = "Total",
+      "Youth Females" = "Female",
+      "Youth Males" = "Male"
+    ),
+    selected = "Youth"
+  ),
+  selectInput(
+    "colors",
+    "Color Scheme: ",
+    rownames(subset(brewer.pal.info, category %in% c("seq", "div"))),
+    selected = "RdYlGn"
+  ),
+  checkboxInput("legend", "Show legend", TRUE)
+)
+
+# Prints map chart with chosen variables
+mapchart_main_content <- mainPanel(
+  leafletOutput("mapchart")
+)
+
+# Puts map chart page together
+map_panel <- tabPanel(
+  "Map chart",
+  sidebarLayout(
+    mapchart_sidebar,
+    mapchart_main_content
+  )
+)
+
 # Defines the 5 pages
 ui <- navbarPage(
   "Literacy Rates Around the World",
   # overview,
   barchart_panel,
-  scatter_panel
-  # map_panel,
+  scatter_panel,
+  map_panel
   # summary
 )
