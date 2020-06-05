@@ -4,6 +4,18 @@ library("ggplot2")
 library("plotly")
 library("RColorBrewer")
 
+# Overview page
+overview_panel <- tabPanel(
+  "Overview",
+  titlePanel("Project Overview"),
+  mainPanel(
+    p("The purpose of this project is to analyze youth literacy rate data to
+       indicate certain correlations it may have with characteristics of the
+       population. The characteristcs we chose to analyze were the countries\'
+       \"Least Developing Countries\" status, gender, ")
+  )
+)
+
 # Widget to define a variable for the scatter plot
 scatter_sidebar_content <- sidebarPanel(
   # An input to select variable for scatter plot
@@ -137,7 +149,7 @@ map_panel <- tabPanel(
 # Defines the 5 pages
 ui <- navbarPage(
   "Literacy Rates Around the World",
-  # overview,
+  overview_panel,
   barchart_panel,
   scatter_panel,
   map_panel
