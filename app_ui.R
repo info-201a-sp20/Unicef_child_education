@@ -61,11 +61,11 @@ barchart_sidebar <- sidebarPanel(
   hr(),
   h4("Our Reasoning:"),
   p("We created the chart to explore the difference of literacy rate
-  across gender (male and female) grouped by regions of the world. 
-  The data is grouped by the region and plotted by the average literacy
-  rate of males and females in each group. The bar plot with two
-  percentages of each gender would allow us to compare the differences 
-    across gender and region.")
+   across gender (male and female) grouped by regions of the world.
+   The data is grouped by the region and plotted by the average literacy
+   rate of males and females in each group. The bar plot with two
+   percentages of each gender would allow us to compare the differences
+   across gender and regions.")
 )
 
 # Prints barchart
