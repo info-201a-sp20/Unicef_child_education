@@ -73,9 +73,10 @@ barchart_panel <- tabPanel(
   )
 )
 
-# Widget to pick gender and color scheme,
+# Widget to pick gender and color s  cheme,
 # choose whether show legend or not
 mapchart_sidebar <- sidebarPanel(
+  # Widget to choose the youth population for the plot
   selectInput(
     "gender",
     "Population: ",
@@ -86,13 +87,26 @@ mapchart_sidebar <- sidebarPanel(
     ),
     selected = "Youth"
   ),
+  
+  # Widget to choose the wanted color scheme for the map
   selectInput(
     "colors",
     "Color Scheme: ",
     rownames(subset(brewer.pal.info, category %in% c("seq", "div"))),
     selected = "RdYlGn"
   ),
-  checkboxInput("legend", "Show legend", TRUE)
+  
+  # Widget to have the legend
+  checkboxInput("legend", "Show legend", TRUE),
+  
+  # Description why we choose the chart
+  hr(),
+  h4("Our reasoning: "),
+  p("We want to know if the high or low literacy rate countries
+    are clustered by their locations and have the overall look of
+    literacy rate globally.Therefore, we have visualizations
+    of the world map with the literacy rate of each country represented
+    by a circle whose color represent its litercy values.")
 )
 
 # Prints map chart with chosen variables
@@ -102,7 +116,8 @@ mapchart_main_content <- mainPanel(
 
 # Puts map chart page together
 map_panel <- tabPanel(
-  "Map chart",
+  "Map of Youth literacy",
+  titlePanel("Youth Literacy Rate by Locations"),
   sidebarLayout(
     mapchart_sidebar,
     mapchart_main_content
