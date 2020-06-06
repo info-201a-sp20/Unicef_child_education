@@ -6,15 +6,23 @@ library("RColorBrewer")
 
 # Overview page
 overview_panel <- tabPanel(
-  "Overview",
-  titlePanel("Project Overview"),
-  mainPanel(
-    p("The purpose of this project is to analyze youth literacy rate data to
+  tags$header(
+    id = "tab_title",
+    "Overview"),
+  tags$header(
+    id = "panel_title",
+    titlePanel("Project Overview")
+    ),
+    mainPanel(
+    tags$p(
+      id = "overview_p",
+      "The purpose of this project is to analyze youth literacy rate data to
        indicate certain correlations it may have with characteristics of the
        population. The characteristcs we chose to analyze were the countries\'
        \"Least Developing Countries\" status, gender, ")
+    )
   )
-)
+
 
 # Widget to define a variable for the scatter plot
 scatter_sidebar_content <- sidebarPanel(
@@ -45,7 +53,9 @@ scatter_main_content <- mainPanel(
 
 # Formats the page and stores a tab panel for the scatter panel
 scatter_panel <- tabPanel(
-  "Scatter",
+    tags$header(
+      id = "tab_title",
+      "Literacy Rates in LDC"),
   titlePanel("Literacy Rates in Least Developed Countries"),
   sidebarLayout(
     scatter_sidebar_content,
@@ -87,7 +97,9 @@ barchart_main_content <- mainPanel(
 
 # Puts barchart page together
 barchart_panel <- tabPanel(
-  "Literacy Rates By Region",
+  tags$header(
+    id = "tab_title",
+    "Literacy Rates By Region"),
   titlePanel("Literacy Rates Based on Regions"),
   sidebarLayout(
     barchart_sidebar,
@@ -138,7 +150,9 @@ mapchart_main_content <- mainPanel(
 
 # Puts map chart page together
 map_panel <- tabPanel(
-  "Youth Literacy Rate Map",
+  tags$header(
+    id = "tab_title",
+    "Youth Literacy Rate Map"),
   titlePanel("Youth Literacy Rate by Locations"),
   sidebarLayout(
     mapchart_sidebar,
