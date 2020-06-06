@@ -30,7 +30,7 @@ overview_panel <- tabPanel(
         data (e.g. country GDP). Furthermore, literacy is a crucial factor in
         human development and economic growth, making it very important to
         improve our education systems."),
-      img(src = "kids_in_classroom.jpeg", align = "left")
+      img(src = "kids_in_classroom.jpeg", align = "center")
     )
   )
 )
@@ -230,7 +230,9 @@ summary_panel <- tabPanel(
 ui <- fluidPage(
   includeCSS("style.css"),
   navbarPage(
-    "Literacy Rates Around the World",
+    tags$div(
+      id = "title",
+      "Literacy Rates Around the World"),
     overview_panel,
     barchart_panel,
     scatter_panel,
