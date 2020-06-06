@@ -23,12 +23,12 @@ overview_panel <- tabPanel(
           "UNICEF"),
         "website. UNICEF referenced the databases from the UNESCO
         Institute for Statistics and Education for All Global Monitoring Report
-        2013/14: Teaching and Learning – Achieving Quality for All by UNESCO for
-        their data."),
+        2013/14: Teaching and Learning – Achieving Quality for All by UNESCO
+        for their data."),
       p("Literacy rates of youths are a good indicator of flaws in the education
-        system and could provide interesting conclusions when compared with other
-        data (e.g. country GDP). Furthermore, literacy is a crucial factor in
-        human development and economic growth, making it very important to
+        system and could provide interesting conclusions when compared with
+        other data (e.g. country GDP). Furthermore, literacy is a crucial factor
+        in human development and economic growth, making it very important to
         improve our education systems."),
       img(src = "kids_in_classroom.jpeg", align = "center")
     )
@@ -123,7 +123,7 @@ barchart_panel <- tabPanel(
   )
 )
 
-# Widget to pick gender and color s  cheme,
+# Widget to pick gender and color scheme,
 # choose whether show legend or not
 mapchart_sidebar <- sidebarPanel(
   # Widget to choose the youth population for the plot
@@ -137,7 +137,6 @@ mapchart_sidebar <- sidebarPanel(
     ),
     selected = "Youth"
   ),
-  
   # Widget to choose the wanted color scheme for the map
   selectInput(
     "colors",
@@ -145,10 +144,8 @@ mapchart_sidebar <- sidebarPanel(
     rownames(subset(brewer.pal.info, category %in% c("seq", "div"))),
     selected = "RdYlGn"
   ),
-  
   # Widget to have the legend
   checkboxInput("legend", "Show legend", TRUE),
-  
   # Description why we choose the chart
   hr(),
   tags$div(

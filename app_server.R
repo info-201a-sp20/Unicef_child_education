@@ -27,17 +27,17 @@ server <- function(input, output) {
   output$mapchart <- renderLeaflet({
     return(map_chart(data, input$gender, input$colors, input$legend))
   })
-  
+
   # Renders barchart on summary page
   output$summ_barchart <- renderPlotly({
     return(bar_chart(data, input$area))
   })
-  
+
   # Renders scatterplot on summary page
   output$summ_scatter <- renderPlotly({
     return(scatter_plot(data, input$y_var))
   })
-  
+
   # Renders the map on summary page
   output$summ_map <- renderLeaflet({
     return(map_chart(data, input$gender, input$colors, input$legend))
