@@ -53,11 +53,13 @@ scatter_sidebar_content <- sidebarPanel(
   tags$div(
     id = "sub_headers",
     h4("Our Reasoning:")),
-  p("In this chart, we wanted to see if there was a similar relationship
+  tags$div(
+    id = "reasoning_body",
+    p("In this chart, we wanted to see if there was a similar relationship
     between the least developing countries (LDC) and their overall youth
     literacy rates. We thought it'd be best to plot this on a scatter plot
     so we could clearly interpret whether the literacy rates of the youth
-    were generally high or low.")
+    were generally high or low."))
 )
 
 # Prints out scatter plot
@@ -98,12 +100,14 @@ barchart_sidebar <- sidebarPanel(
   tags$div(
     id = "sub_headers",
     h4("Our Reasoning:")),
-  p("We created the chart to explore the difference of literacy rate
-   across gender (male and female) grouped by regions of the world.
-   The data is grouped by the region and plotted by the average literacy
-   rate of males and females in each group. The bar plot with two
-   percentages of each gender would allow us to compare the differences
-   across gender and regions.")
+  tags$div(
+    id = "reasoning_body",
+    p("We created the chart to explore the difference of literacy rate
+     across gender (male and female) grouped by regions of the world.
+     The data is grouped by the region and plotted by the average literacy
+     rate of males and females in each group. The bar plot with two
+     percentages of each gender would allow us to compare the differences
+     across gender and regions."))
 )
 
 # Prints barchart
@@ -151,11 +155,14 @@ mapchart_sidebar <- sidebarPanel(
   tags$div(
     id = "sub_headers",
     h4("Our reasoning: ")),
-  p("We want to know if the high or low literacy rate countries
-    are clustered by their locations and have the overall look of
-    literacy rate globally. Therefore, we have visualizations
-    of the world map with the literacy rate of each country represented
-    by a circle whose color represent its litercy values.")
+  tags$div(
+    id = "reasoning_body",
+    p("We want to know if the high or low literacy rate countries
+      are clustered by their locations and have the overall look of
+      literacy rate globally. Therefore, we have visualizations
+      of the world map with the literacy rate of each country represented
+      by a circle whose color represent its litercy values.")
+  )
 )
 
 # Prints map chart with chosen variables
@@ -186,40 +193,46 @@ summary_panel <- tabPanel(
       id = "takeaways",
       h3("Takeaway #1")),
     plotlyOutput(outputId = "summ_barchart"),
-    p(),
-    p("There is a generally higher percentage of literate male youths than
-      female. The bar chart above displays the male/female youth literacy
-      percentage for South Africa (SA) and Sub-Saharan Africa (SSA). This
-      observation may be due to remnants of sexism and traditional values
-      in the education system. It implies a need for an emphasis on
-      female education."),
+    tags$div(
+      id = "takeaway_body",
+      p("There is a generally higher percentage of literate male youths than
+        female. The bar chart above displays the male/female youth literacy
+        percentage for South Africa (SA) and Sub-Saharan Africa (SSA). This
+        observation may be due to remnants of sexism and traditional values
+        in the education system. It implies a need for an emphasis on
+        female education.")
+    ),
     tags$div(
       id = "takeaways",
       h3("Takeaway #2")),
     plotlyOutput(outputId = "summ_scatter"),
-    p(),
-    p("The distribution of literacy rates among the Least Developed Countries
-      is surprisingly scattered. The scatter plot above displays the literacy
-      rate of all youths in every Least Developed Country (LDC). The obvious
-      assumption about literacy rates in LDCs is that it will be generally
-      lower, but, as shown in the scatter plot, there are many LDCs that have
-      near 100% youth literacy rate. This suggests that the LDC category used
-      in the data may not be current or education reform in LDCs has been
-      successful."),
+    tags$div(
+      id = "takeaway_body",
+      p("The distribution of literacy rates among the Least Developed Countries
+        is surprisingly scattered. The scatter plot above displays the literacy
+        rate of all youths in every Least Developed Country (LDC). The obvious
+        assumption about literacy rates in LDCs is that it will be generally
+        lower, but, as shown in the scatter plot, there are many LDCs that have
+        near 100% youth literacy rate. This suggests that the LDC category used
+        in the data may not be current or education reform in LDCs has been
+        successful.")
+    ),
     tags$div(
       id = "takeaways",
       h3("Takeaway #3")),
     leafletOutput(outputId = "summ_map"),
-    p(),
-    p("The lower youth literacy rates tend to be concentrated around central
-      to lower African regions. The map above displays the youth literacy
-      rate by region, where the color scale is red-yellow-green, corresponding
-      to the literacy rate percentages as shown in the legend. As shown, most
-      of the red dots (<60% literacy rate) are concentrated around the central
-      and lower African regions. This suggests that education efforts are not
-      as strong and/or successful in the central and lower African regions.
-      The observation implies a need for education reform in those regions to
-      focus resources on educating youth.")
+    tags$div(
+      id = "takeaway_body",
+      p("The lower youth literacy rates tend to be concentrated around central
+        to lower African regions. The map above displays the youth literacy
+        rate by region, where the color scale is red-yellow-green, corresponding
+        to the literacy rate percentages as shown in the legend. As shown, most
+        of the red dots (<60% literacy rate) are concentrated around the central
+        and lower African regions. This suggests that education efforts are not
+        as strong and/or successful in the central and lower African regions.
+        The observation implies a need for education reform in those regions to
+        focus resources on educating youth.")
+    )
   )
 )
 
