@@ -11,7 +11,7 @@ overview_panel <- tabPanel(
     "Project Overview"),
   titlePanel("Project Overview"),
   mainPanel(
-    tags$p(
+    tags$div(
       id = "overview_body",
       p("The purpose of this project is to analyze youth literacy rate data to
         indicate certain correlations it may have with characteristics of the
@@ -50,7 +50,9 @@ scatter_sidebar_content <- sidebarPanel(
   ),
   # A description of why we chose a scatter plot
   hr(),
-  h4("Our Reasoning:"),
+  tags$div(
+    id = "sub_headers",
+    h4("Our Reasoning:")),
   p("In this chart, we wanted to see if there was a similar relationship
     between the least developing countries (LDC) and their overall youth
     literacy rates. We thought it'd be best to plot this on a scatter plot
@@ -65,9 +67,9 @@ scatter_main_content <- mainPanel(
 
 # Formats the page and stores a tab panel for the scatter panel
 scatter_panel <- tabPanel(
-    tags$header(
-      id = "tab_title",
-      "Literacy Rates in LDC"),
+  tags$header(
+    id = "tab_title",
+    "Literacy Rates in LDC"),
   titlePanel("Literacy Rates in Least Developed Countries"),
   sidebarLayout(
     scatter_sidebar_content,
@@ -80,7 +82,7 @@ scatter_panel <- tabPanel(
 barchart_sidebar <- sidebarPanel(
   checkboxGroupInput(
     "area",
-    h3("Region:"),
+    h4("Region:"),
     choices = list(
       "Sub-Saharan Africa" = "SSA",
       "South Africa" = "SA",
@@ -93,7 +95,9 @@ barchart_sidebar <- sidebarPanel(
   ),
   # A description of why we chose a bar chart
   hr(),
-  h4("Our Reasoning:"),
+  tags$div(
+    id = "sub_headers",
+    h4("Our Reasoning:")),
   p("We created the chart to explore the difference of literacy rate
    across gender (male and female) grouped by regions of the world.
    The data is grouped by the region and plotted by the average literacy
@@ -147,10 +151,12 @@ mapchart_sidebar <- sidebarPanel(
   
   # Description why we choose the chart
   hr(),
-  h4("Our reasoning: "),
+  tags$div(
+    id = "sub_headers",
+    h4("Our reasoning: ")),
   p("We want to know if the high or low literacy rate countries
     are clustered by their locations and have the overall look of
-    literacy rate globally.Therefore, we have visualizations
+    literacy rate globally. Therefore, we have visualizations
     of the world map with the literacy rate of each country represented
     by a circle whose color represent its litercy values.")
 )
@@ -165,7 +171,7 @@ map_panel <- tabPanel(
   tags$header(
     id = "tab_title",
     "Youth Literacy Rate Map"),
-  titlePanel("Youth Literacy Rate by Locations"),
+  titlePanel("Youth Literacy Rate By Location"),
   sidebarLayout(
     mapchart_sidebar,
     mapchart_main_content
@@ -179,7 +185,9 @@ summary_panel <- tabPanel(
     "Summary Takeaways"),
   titlePanel("Summary Takeaways"),
   mainPanel(
-    h3("Takeaway #1"),
+    tags$div(
+      id = "takeaways",
+      h3("Takeaway #1")),
     plotlyOutput(outputId = "summ_barchart"),
     p(),
     p("There is a generally higher percentage of literate male youths than
@@ -188,7 +196,9 @@ summary_panel <- tabPanel(
       observation may be due to remnants of sexism and traditional values
       in the education system. It implies a need for an emphasis on
       female education."),
-    h3("Takeaway #2"),
+    tags$div(
+      id = "takeaways",
+      h3("Takeaway #2")),
     plotlyOutput(outputId = "summ_scatter"),
     p(),
     p("The distribution of literacy rates among the Least Developed Countries
@@ -199,7 +209,9 @@ summary_panel <- tabPanel(
       near 100% youth literacy rate. This suggests that the LDC category used
       in the data may not be current or education reform in LDCs has been
       successful."),
-    h3("Takeaway #3"),
+    tags$div(
+      id = "takeaways",
+      h3("Takeaway #3")),
     leafletOutput(outputId = "summ_map"),
     p(),
     p("The lower youth literacy rates tend to be concentrated around central

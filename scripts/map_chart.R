@@ -8,7 +8,7 @@ map_chart <- function(data, gender, colors, legend) {
     data[[gender]],
     c(0, 60, 80, 90, 95, 98.9, 99, 100),
     include.lowest = T,
-    labels = c("<60%", "60-80%", "80-90%", "90-95%", ">95%", "99%", "100%")
+    labels = c("<60%", "60-80%", "80-90%", "90-95%", "95-98%", "99%", "100%")
   )
 
   # Color scheme with the given colorScheme parameters
@@ -38,7 +38,7 @@ map_chart <- function(data, gender, colors, legend) {
         "bottomright",
         pal = factpal,
         values = plot_data$literacy_level,
-        title = "The literacy rate",
+        title = "Literacy Rate",
         opacity = 1
       )
   }
