@@ -135,11 +135,13 @@ map_panel <- tabPanel(
 )
 
 # Defines the 5 pages
-ui <- navbarPage(
+ui <- fluidPage(
+  includeCSS("style.css"),
+  navbarPage(
   "Literacy Rates Around the World",
   # overview,
   barchart_panel,
   scatter_panel,
   map_panel
   # summary
-)
+))
