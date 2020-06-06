@@ -2,11 +2,10 @@
   text-align: center;
 }
 
-#overview_p {
+#overview_body {
   text-align: center;
 }
 
 #tab_title {
-  color: red;
-  background-color: blue;
+  color: #34b4eb;
 }

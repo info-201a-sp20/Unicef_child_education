@@ -8,27 +8,30 @@ library("RColorBrewer")
 overview_panel <- tabPanel(
   tags$header(
     id = "tab_title",
-    "Overview"),
+    "Project Overview"),
   titlePanel("Project Overview"),
   mainPanel(
-    p("The purpose of this project is to analyze youth literacy rate data to
-      indicate certain correlations it may have with characteristics of the
-      population. The characteristcs we chose to analyze were the countries\'
-      \"Least Developed Countries\" status, gender, and general location."),
-    p("Our data is the Youth literacy rate for 15-24 years in different
-      countries. The data was found on the ",
-      a(href = "https://data.unicef.org/resources/dataset/education-data/",
-        "UNICEF"),
-      "website. UNICEF referenced the databases from the UNESCO
-      Institute for Statistics and Education for All Global Monitoring Report
-      2013/14: Teaching and Learning – Achieving Quality for All by UNESCO for
-      their data."),
-    p("Literacy rates of youths are a good indicator of flaws in the education
-      system and could provide interesting conclusions when compared with other
-      data (e.g. country GDP). Furthermore, literacy is a crucial factor in
-      human development and economic growth, making it very important to
-      improve our education systems."),
-    img(src = "kids_in_classroom.jpeg", align = "left")
+    tags$p(
+      id = "overview_body",
+      p("The purpose of this project is to analyze youth literacy rate data to
+        indicate certain correlations it may have with characteristics of the
+        population. The characteristcs we chose to analyze were the countries\'
+        \"Least Developed Countries\" status, gender, and general location."),
+      p("Our data is the Youth literacy rate for 15-24 years in different
+        countries. The data was found on the ",
+        a(href = "https://data.unicef.org/resources/dataset/education-data/",
+          "UNICEF"),
+        "website. UNICEF referenced the databases from the UNESCO
+        Institute for Statistics and Education for All Global Monitoring Report
+        2013/14: Teaching and Learning – Achieving Quality for All by UNESCO for
+        their data."),
+      p("Literacy rates of youths are a good indicator of flaws in the education
+        system and could provide interesting conclusions when compared with other
+        data (e.g. country GDP). Furthermore, literacy is a crucial factor in
+        human development and economic growth, making it very important to
+        improve our education systems."),
+      img(src = "kids_in_classroom.jpeg", align = "left")
+    )
   )
 )
 
@@ -171,7 +174,9 @@ map_panel <- tabPanel(
 
 # Summary page
 summary_panel <- tabPanel(
-  "Summary Takeaways",
+  tags$header(
+    id = "tab_title",
+    "Summary Takeaways"),
   titlePanel("Summary Takeaways"),
   mainPanel(
     h3("Takeaway #1"),
@@ -192,8 +197,8 @@ summary_panel <- tabPanel(
       assumption about literacy rates in LDCs is that it will be generally
       lower, but, as shown in the scatter plot, there are many LDCs that have
       near 100% youth literacy rate. This suggests that the LDC category used
-      in the data may not be current, education reform in LDCs has been
-      successful, or the literacy rate data is inaccurate."),
+      in the data may not be current or education reform in LDCs has been
+      successful."),
     h3("Takeaway #3"),
     leafletOutput(outputId = "summ_map"),
     p(),
@@ -213,10 +218,11 @@ summary_panel <- tabPanel(
 ui <- fluidPage(
   includeCSS("style.css"),
   navbarPage(
-  "Literacy Rates Around the World",
-  overview_panel,
-  barchart_panel,
-  scatter_panel,
-  map_panel,
-  summary_panel
-))
+    "Literacy Rates Around the World",
+    overview_panel,
+    barchart_panel,
+    scatter_panel,
+    map_panel,
+    summary_panel
+  )
+)
