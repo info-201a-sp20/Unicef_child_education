@@ -87,7 +87,7 @@ barchart_main_content <- mainPanel(
 
 # Puts barchart page together
 barchart_panel <- tabPanel(
-  "Barchart",
+  "Literacy Rates By Region",
   titlePanel("Literacy Rates Based on Regions"),
   sidebarLayout(
     barchart_sidebar,
@@ -138,7 +138,7 @@ mapchart_main_content <- mainPanel(
 
 # Puts map chart page together
 map_panel <- tabPanel(
-  "Map of Youth literacy",
+  "Youth Literacy Rate Map",
   titlePanel("Youth Literacy Rate by Locations"),
   sidebarLayout(
     mapchart_sidebar,
