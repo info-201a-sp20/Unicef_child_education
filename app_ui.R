@@ -9,19 +9,28 @@ overview_panel <- tabPanel(
   tags$header(
     id = "tab_title",
     "Overview"),
-  tags$header(
-    id = "panel_title",
-    titlePanel("Project Overview")
-    ),
-    mainPanel(
-    tags$p(
-      id = "overview_p",
-      "The purpose of this project is to analyze youth literacy rate data to
-       indicate certain correlations it may have with characteristics of the
-       population. The characteristcs we chose to analyze were the countries\'
-       \"Least Developing Countries\" status, gender, ")
-    )
+  titlePanel("Project Overview"),
+  mainPanel(
+    p("The purpose of this project is to analyze youth literacy rate data to
+      indicate certain correlations it may have with characteristics of the
+      population. The characteristcs we chose to analyze were the countries\'
+      \"Least Developing Countries\" status, gender, and general location."),
+    p("Our data is the Youth literacy rate for 15-24 years in different
+      countries. The data was found on the ",
+      a(href = "https://data.unicef.org/resources/dataset/education-data/",
+        "UNICEF"),
+      "website. UNICEF referenced the databases from the UNESCO
+      Institute for Statistics and Education for All Global Monitoring Report
+      2013/14: Teaching and Learning – Achieving Quality for All by UNESCO for
+      their data."),
+    p("Literacy rates of youths are a good indicator of flaws in the education
+      system and could provide interesting conclusions when compared with other
+      data (e.g. country GDP). Furthermore, literacy is a crucial factor in
+      human development and economic growth, making it very important to
+      improve our education systems."),
+    img(src = "kids_in_classroom.jpeg", align = "left")
   )
+)
 
 
 # Widget to define a variable for the scatter plot
@@ -160,6 +169,16 @@ map_panel <- tabPanel(
   )
 )
 
+# Summary page
+summary_panel <- tabPanel(
+  "Summary Takeaways",
+  titlePanel("Summary Takeaways"),
+  mainPanel(
+    h3("Takeaway #1"),
+    plotlyOutput(outputId = "summ_barchart")
+  )
+)
+
 # Defines the 5 pages
 ui <- fluidPage(
   includeCSS("style.css"),
@@ -168,6 +187,6 @@ ui <- fluidPage(
   overview_panel,
   barchart_panel,
   scatter_panel,
-  map_panel
-  # summary
+  map_panel,
+  summary_panel
 ))
