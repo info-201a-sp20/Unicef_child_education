@@ -12,7 +12,7 @@ overview_panel <- tabPanel(
     p("The purpose of this project is to analyze youth literacy rate data to
       indicate certain correlations it may have with characteristics of the
       population. The characteristcs we chose to analyze were the countries\'
-      \"Least Developing Countries\" status, gender, and general location."),
+      \"Least Developed Countries\" status, gender, and general location."),
     p("Our data is the Youth literacy rate for 15-24 years in different
       countries. The data was found on the ",
       a(href = "https://data.unicef.org/resources/dataset/education-data/",
@@ -81,7 +81,7 @@ barchart_sidebar <- sidebarPanel(
       "Europe and Central Asia" = "ECA",
       "East Asia and Pacific" = "EAP"
     ),
-    selected = "SSA"
+    selected = c("SSA", "SA")
   ),
   # A description of why we chose a bar chart
   hr(),
@@ -166,7 +166,37 @@ summary_panel <- tabPanel(
   titlePanel("Summary Takeaways"),
   mainPanel(
     h3("Takeaway #1"),
-    plotlyOutput(outputId = "summ_barchart")
+    plotlyOutput(outputId = "summ_barchart"),
+    p(),
+    p("There is a generally higher percentage of literate male youths than
+      female. The bar chart above displays the male/female youth literacy
+      percentage for South Africa (SA) and Sub-Saharan Africa (SSA). This
+      observation may be due to remnants of sexism and traditional values
+      in the education system. It implies a need for an emphasis on
+      female education."),
+    h3("Takeaway #2"),
+    plotlyOutput(outputId = "summ_scatter"),
+    p(),
+    p("The distribution of literacy rates among the Least Developed Countries
+      is surprisingly scattered. The scatter plot above displays the literacy
+      rate of all youths in every Least Developed Country (LDC). The obvious
+      assumption about literacy rates in LDCs is that it will be generally
+      lower, but, as shown in the scatter plot, there are many LDCs that have
+      near 100% youth literacy rate. This suggests that the LDC category used
+      in the data may not be current, education reform in LDCs has been
+      successful, or the literacy rate data is inaccurate."),
+    h3("Takeaway #3"),
+    leafletOutput(outputId = "summ_map"),
+    p(),
+    p("The lower youth literacy rates tend to be concentrated around central
+      to lower African regions. The map above displays the youth literacy
+      rate by region, where the color scale is red-yellow-green, corresponding
+      to the literacy rate percentages as shown in the legend. As shown, most
+      of the red dots (<60% literacy rate) are concentrated around the central
+      and lower African regions. This suggests that education efforts are not
+      as strong and/or successful in the central and lower African regions.
+      The observation implies a need for education reform in those regions to
+      focus resources on educating youth.")
   )
 )
 
